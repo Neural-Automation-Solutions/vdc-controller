@@ -36,3 +36,5 @@ dist/*
 
 # Misc
 file_structure
+data
+*.swp
