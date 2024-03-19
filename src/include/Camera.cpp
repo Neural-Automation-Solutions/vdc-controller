@@ -37,9 +37,13 @@ pid_t Camera::start_libcamera(char* filename) {
 
 	if (child == 0) {
 		execl("/usr/bin/libcamera-vid",
-			// bitrate
-			"-b",
-			"9000000",
+			// bitrate - 9000000 is suggested for less artifacts
+			// but I couldn't get better results than the default
+			// no matter what bitrate I used
+			// "-b",
+			// "9000000",
+			"--framerate",
+			"30",
 			// timeout - set to 0 so it doesn't stop unless we say so
 			"-t",
 			"0",
@@ -47,10 +51,10 @@ pid_t Camera::start_libcamera(char* filename) {
 			"--codec",
 			"libav",
 			// resolution - 1920x1080 for HD
-			"--width",
-			"1920",
-			"--height",
-			"1080",
+			// "--width",
+			// "1920",
+			// "--height",
+			// "1080",
 			// enable signals
 			"-s",
 			// output
