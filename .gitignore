@@ -30,3 +30,9 @@
 *.exe
 *.out
 *.app
+
+# Dist files
+dist/*
+
+# Misc
+file_structure
