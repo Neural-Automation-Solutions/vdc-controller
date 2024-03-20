@@ -6,6 +6,7 @@ class Camera {
 		Camera(char* _save_dir);
 		void start_recording();
 		void stop_recording();
+		bool is_recording();
 		~Camera();
 	private:
 		char* save_dir;

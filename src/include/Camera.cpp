@@ -2,7 +2,10 @@
 #include "utils.h"
 #include <iostream>
 #include <unistd.h>
+#include <sys/types.h>
+#include <sys/wait.h>
 #include <csignal>
+#include <cstdlib>
 
 Camera::Camera(char* _save_dir) {
 	save_dir = _save_dir;
@@ -20,6 +23,10 @@ void Camera::start_recording() {
 
 void Camera::stop_recording() {
 	stop_libcamera();	
+}
+
+bool Camera::is_recording() {
+	return system("pgrep -x 'libcamera-vid'") == 0;
 }
 
 pid_t Camera::start_libcamera(char* filename) {
@@ -73,6 +80,10 @@ void Camera::stop_libcamera() {
 		// quits on SIGUSR2
 		kill(camera_pid, SIGUSR2);
 	}
+
+	// wait for libcamera-vid process to stop
+	int status;
+	waitpid(camera_pid, &status, 0);
 
 	camera_pid = 0;
 }
