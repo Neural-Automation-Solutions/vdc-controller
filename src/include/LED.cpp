@@ -14,7 +14,8 @@ LED::LED(unsigned int _pin) {
 }
 
 LED::~LED() {
-	off();
+	gpioInitialise();
+	gpioWrite(pin, PI_OFF);
 	gpioSetMode(pin, PI_INPUT);
 	gpioTerminate();
 }
