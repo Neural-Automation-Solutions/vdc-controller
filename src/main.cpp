@@ -17,9 +17,9 @@ Camera cam(SAVE_DIR);
 
 // LEDs
 // LED showing program status (on: running, off: not running)
-LED programStatusLED(17);
+LED programStatusLED(19);
 // LED showing camera status (on: recording, off: not recording)
-LED cameraStatusLED(4);
+LED cameraStatusLED(26);
 
 // Switch
 Switch s(2);
