@@ -1,7 +1,7 @@
 
 CC=g++
 CFLAGS=-w
-OUT=dist/out
+OUT=dist/vdc-main
 HEADERS=src/headers
 INCLUDE=src/include/
 
