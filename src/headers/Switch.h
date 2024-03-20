@@ -1,6 +1,7 @@
 class Switch {
 	public:
 		Switch(unsigned int _pin);
+		int getState();
 		~Switch();
 	private:
 		unsigned int pin;

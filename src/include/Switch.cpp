@@ -21,7 +21,13 @@ Switch::Switch(unsigned int _pin) {
 	}
 }
 
+int Switch::getState() {
+	// read gpio
+	return gpioRead(pin);
+}
+
 Switch::~Switch() {
+	gpioInitialise();
 	gpioTerminate();
 }
 
