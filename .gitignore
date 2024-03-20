@@ -38,3 +38,7 @@ dist/*
 file_structure
 data
 *.swp
+
+# Log files
+*.log
+*.txt
