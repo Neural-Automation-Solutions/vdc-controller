@@ -64,6 +64,8 @@ pid_t Camera::start_libcamera(char* filename) {
 			// "1080",
 			// enable signals
 			"-s",
+			// disable preview
+			"--nopreview",
 			// output
 			"-o",
 			name,
